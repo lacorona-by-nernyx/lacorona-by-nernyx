@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Corona Negra | Haute Parfumerie</title>
+  <style>
+    :root {
+      --obsidian: #080808;
+      --velvet: #1a1a1a;
+      --gilded: #d4af37;
+      --lilac-dust: #e0c3fc;
+      --parchment: #f0e6d2;
+      --silver-mist: #c0c0c0;
+      --font-serif: 'Cormorant Garamond', serif;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&display=swap');
+    
+    body {
+      margin: 0;
+      font-family: var(--font-serif);
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(30, 30, 30, 0.9) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(40, 40, 40, 0.9) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      background-color: #0a0a0a;
+      color: var(--parchment);
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      min-height: 100vh;
+    }
+    
+    header {
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gilded), transparent);
+    }
+    
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    h1, h2, h3 {
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      margin: 0 0 1rem;
+      color: var(--gilded);
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+    
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin: 3rem auto 2rem;
+      color: var(--lilac-dust);
+      position: relative;
+      padding-bottom: 1.5rem;
+    }
+    
+    h2::after {
+      content: '✧';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gilded);
+      font-size: 1.2rem;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      color: var(--silver-mist);
+      margin: 0 0 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gilded), transparent);
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: var(--silver-mist);
+      margin: 1.5rem 0;
+    }
+    
+    em {
+      font-style: italic;
+      display: block;
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--lilac-dust);
+      margin: 1rem 0 2rem;
+    }
+    
+    strong {
+      color: var(--parchment);
+      font-weight: 500;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 3rem auto;
+    }
+    
+    .card {
+      background: var(--velvet);
+      padding: 2.5rem;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+    }
+    
+    .perfume-image {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
+      border-radius: 2px;
+      background-color: rgba(0,0,0,0.3);
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .perfume-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+    }
+    
+    .concentration {
+      color: var(--gilded);
+      font-size: 0.9rem;
+      margin: 0.5rem 0 1.5rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+    
+    ul {
+      padding-left: 1.5rem;
+      list-style-type: none;
+    }
+    
+    li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+      color: var(--silver-mist);
+    }
+    
+    li::before {
+      content: '◈';
+      position: absolute;
+      left: 0;
+      color: var(--gilded);
+      font-size: 0.8rem;
+    }
+    
+    footer {
+      text-align: center;
+      color: var(--silver-mist);
+      font-size: 0.9rem;
+      margin-top: 6rem;
+      padding: 2rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      letter-spacing: 0.1em;
+    }
+    
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .note-category {
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+      padding-top: 1rem;
+    }
+    
+    .note-category strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--lilac-dust);
+    }
+    
+    .social-handles {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #555;
+      letter-spacing: 0.05em;
+    }
+    
+    .social-handles span {
+      font-family: monospace;
+      display: block;
+      line-height: 1.4;
+    }
+    
+    @media (max-width: 768px) {
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      section {
+        padding: 3rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>La Corona Negra</h1>
+    <em>Not all crowns are worn. Some are felt in silence.</em>
+  </header>
+
+  <section id="collection">
+    <h2>The Collection</h2>
+    <p>Each scent is a relic. Each bottle, a crown. La Corona Negra curates perfumes like memories — precious, layered, eternal. We do not produce. We commit — to each fragrance as if it were the final word we'll ever speak.</p>
+    
+    <div class="gallery">
+      <div class="card">
+        <img src="https://www.dropbox.com/scl/fi/pg9oegzum1921k8mcfkph/Silvella-de-lara-bottle.png?rlkey=nt2ayxwx8yandd29uvlijgkws&st=swdd7gqt&dl=1" 
+             alt="Silvella de Lara - Frosted glass bottle with gold filigree and black onyx cap" 
+             class="perfume-image"
+             loading="lazy">
+        <h3>Silvella de Lara</h3>
+        <p class="concentration">Extrait de Parfum • 50ml • 22% Concentration</p>
+        <p>A whispered memory captured at dawn's first light. The fragrance opens with Calabrian bergamot and Sicilian white peach, kissed by Tunisian neroli. The heart reveals Florentine iris pallida and orris butter aged in sandalwood vessels.</p>
+        
+        <div class="notes-grid">
+          <div class="note-category">
+            <strong>Top Notes</strong>
+            <div>White Peach</div>
+            <div>Neroli</div>
+            <div>Bergamot</div>
+          </div>
+          <div class="note-category">
+            <strong>Heart Notes</strong>
+            <div>Iris Pallida</div>
+            <div>Orris Root</div>
+            <div>Peony</div>
+          </div>
+          <div class="note-category">
+            <strong>Base Notes</strong>
+            <div>Skin Musk</div>
+            <div>White Amber</div>
+            <div>Cashmeran</div>
+          </div>
+        </div>
+        
+        <p>The flacon: hand-blown frosted glass with 24k gold filigree, crowned with a black onyx cap. Each bottle is numbered and presented in a velvet-lined ashwood case.</p>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.dropbox.com/scl/fi/tj3g28ahjlxl4vcnwt91f/helsia-of-dawn-bottle.png?rlkey=lvcf8lfgpiqrch2wjecptjcg3&st=r5ystkaf&dl=1" 
+             alt="Bellora Helsia of Dawn - Faceted crystal flacon with silver diamond cap" 
+             class="perfume-image"
+             loading="lazy">
+        <h3>Bellora Helsia of Dawn</h3>
+        <p class="concentration">Extrait de Parfum • 50ml • 28% Concentration</p>
+        <p>The alchemy of first light captured in glass. The top notes feature a rare green tea extraction from Uji, Japan, blended with bergamot from the Calabrian coast and orange blossom from Seville.</p>
+        
+        <div class="notes-grid">
+          <div class="note-category">
+            <strong>Top Notes</strong>
+            <div>Bergamot</div>
+            <div>Green Tea</div>
+            <div>Orange Blossom</div>
+          </div>
+          <div class="note-category">
+            <strong>Heart Notes</strong>
+            <div>Halesia Carolina</div>
+            <div>Jasmine Sambac</div>
+            <div>Lily of the Valley</div>
+          </div>
+          <div class="note-category">
+            <strong>Base Notes</strong>
+            <div>Sandalwood</div>
+            <div>White Musk</div>
+            <div>Ambergris</div>
+          </div>
+        </div>
+        
+        <p>The crystal flacon is hand-cut in the Czech Republic with a faceted design that refracts light like morning dew. The cap is cast from sterling silver with a single diamond set at its apex.</p>
+      </div>
+      
+      <div class="card">
+        <img src="https://www.dropbox.com/scl/fi/7hub3c27kci9ijk1ih7ii/Hollowgrind-bottle.png?rlkey=09m0wcussjpcndopm1q2kmgj5&st=qfdpvmgi&dl=1" 
+             alt="Hollowgrind - Smoked glass bottle with grip texture and aluminum skate cap" 
+             class="perfume-image"
+             loading="lazy">
+        <h3>Hollowgrind</h3>
+        <p class="concentration">Eau de Parfum • 50ml • 18% Concentration</p>
+        <p>A bold, street-inspired elixir for urban royalty. The top notes feature organic lemon from Sorrento and bergamot from Calabria, blended with Australian eucalyptus. The heart combines Provence lavender with cedarwood aged in bourbon barrels and Italian leather.</p>
+        
+        <div class="notes-grid">
+          <div class="note-category">
+            <strong>Top Notes</strong>
+            <div>Lemon</div>
+            <div>Bergamot</div>
+            <div>Eucalyptus</div>
+          </div>
+          <div class="note-category">
+            <strong>Heart Notes</strong>
+            <div>Lavender</div>
+            <div>Cedarwood</div>
+            <div>Worn Leather</div>
+          </div>
+          <div class="note-category">
+            <strong>Base Notes</strong>
+            <div>Patchouli</div>
+            <div>Amber</div>
+            <div>Musk</div>
+          </div>
+        </div>
+        
+        <p>The vessel: clear smoked glass with a texture mimicking grip tape, screen-printed with platinum ink. The cap is machined from aircraft-grade aluminum with a ceramic skate bearing inset.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>The Origin</h2>
+    <p>La Corona Negra was not crafted — it was whispered into existence. Conceived in stillness and shadow, this house is not a label but a legacy. Its offerings are not trends, but testaments. They do not ask to be noticed. They are simply remembered.</p>
+    <p>Under the watchful eye of Nernyx Corp, a silent architect of meaning and myth, La Corona Negra emerged as a sovereign symbol — a brand that wears quiet like velvet, and projects elegance without voice.</p>
+  </section>
+
+  <footer>
+    La Corona Negra — An imprint of Nernyx Corp. © 2025<br>
+    Nernyx Corp maintains La Corona Negra ateliers in Chalatenango, El Salvador and Ogden, Utah, USA. All further details remain confidential.
+    <div class="social-handles">
+      Follow us quietly:<br>
+      <span>Instagram: <a href="https://www.instagram.com/lacoronanegra.official?igsh=d25oYml1NjF6d3Y4" style="color: inherit; text-decoration: none;">@lacoronanegra.official</a></span>
+      <span>TikTok: <a href="https://www.tiktok.com/@lacoronanegra?_t=ZP-8wdSlKXBTFH&_r=1" style="color: inherit; text-decoration: none;">@lacoronanegra</a></span>
+    </div>
+  </footer>
+</body>
+</html>
